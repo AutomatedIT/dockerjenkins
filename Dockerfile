@@ -52,6 +52,8 @@ COPY resources/plugins/* /var/jenkins_home/plugins/
 
 RUN mkdir -p /var/jenkins_home/jobs/RunMe
 COPY resources/jobs/RunMeconfig.xml /var/jenkins_home/jobs/RunMe/config.xml
+RUN mkdir -p /var/jenkins_home/jobs/PipelineDemo
+COPY resources/jobs/PipelineDemoconfig.xml /var/jenkins_home/jobs/PipelineDemo/config.xml
 
 #Not working yet... 
 #USER jenkins
