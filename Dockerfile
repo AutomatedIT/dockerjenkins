@@ -13,6 +13,7 @@ RUN yum update -y \
 	&& yum install -y java-1.8.0-openjdk-devel \
 	&& yum install -y git \
 	&& yum install -y python \
+	&& yum install -y tar \
 	&& yum install -y wget \
 	&& yum install -y which \
 	&& yum clean all \
@@ -45,6 +46,12 @@ RUN chmod +x /bin/tini \
 
 ### EXPOSE VOLUME
 VOLUME /var/jenkins_home
+
+### For demo purposes, adding the plugins and jobs we want to bake in....
+COPY resources/plugins/* /var/jenkins_home/plugins/
+
+RUN mkdir -p /var/jenkins_home/jobs/RunMe
+COPY resources/jobs/RunMeconfig.xml /var/jenkins_home/jobs/RunMe/config.xml
 
 #Not working yet... 
 #USER jenkins
