@@ -7,7 +7,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>https://github.com/AutomatedIT/spring-boot-demo.git</url>
+        <url>https://github.com/AutomatedIT/springbootjenkinspipelinedemo.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -27,9 +27,9 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>./gradlew build
-cp ./build/libs/springbootdemo*.jar .
-cp springbootdemo*.jar /app.jar
+      <command>./gradlew clean build
+cp ./build/libs/cicdjenkins*.jar .
+cp cicdjenkins*.jar /app.jar
 /usr/bin/java -jar -Dspring.profiles.active=test -Dserver.port=80 /app.jar</command>
     </hudson.tasks.Shell>
   </builders>
